@@ -1,5 +1,5 @@
 import com.google.gson.Gson;
-import common.SuccessMessage;
+import common.ResponseMessage;
 import common.Validator;
 import exception.NotAccountFoundException;
 import java.util.Optional;
@@ -54,7 +54,7 @@ class AccountRoutes {
 
       accountService.processTransfer(transferRequest);
 
-      return new SuccessMessage( "Transfer completed");
+      return new ResponseMessage( "Transfer completed");
     };
   }
 }

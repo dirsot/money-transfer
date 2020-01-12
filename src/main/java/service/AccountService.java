@@ -66,10 +66,10 @@ public class AccountService {
           .fetchAnyInto(Long.class);
       validateAccount(request.receiverAccount, accountToId);
 
-      DSL.using(configuration)
+      int update = DSL.using(configuration)
           .update(ACCOUNT)
           .set(ACCOUNT.BALANCE, ACCOUNT.BALANCE.minus(request.amount))
-          .where(ACCOUNT.ID.eq(accountFromId))
+          .where(ACCOUNT.ID.eq(accountFromId).and(ACCOUNT.BALANCE.ge(request.amount)))
           .execute();
 
       DSL.using(configuration)
@@ -89,7 +89,7 @@ public class AccountService {
               ACCOUNT_HISTORY.ORIGIN)
           .values(accountToId, request.amount, request.requstOriginApplication)
           .execute();
-      if (historyAccount1 != 1 || historyAccount2 != 1) {
+      if (update !=1 || historyAccount1 != 1 || historyAccount2 != 1) {
         throw new SQLException("Money transfer failed.");
       }
       return null;

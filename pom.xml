@@ -70,17 +70,6 @@
   </dependencies>
 
   <build>
-    <!--    <resources>-->
-    <!--      <resource>-->
-    <!--        <filtering>true</filtering>-->
-    <!--        <directory>src/main/resources</directory>-->
-    <!--        <includes>-->
-    <!--          <include>**/*.properties</include>-->
-    <!--          <include>./*.properties</include>-->
-    <!--        </includes>-->
-    <!--      </resource>-->
-    <!--    </resources>-->
-
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>

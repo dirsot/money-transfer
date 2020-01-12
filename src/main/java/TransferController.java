@@ -1,9 +1,11 @@
 import common.JsonTransformer;
-import common.SuccessMessage;
+import common.ResponseMessage;
 import exception.NotAccountFoundException;
 import javax.xml.bind.ValidationException;
 import org.jooq.exception.DataAccessException;
 import service.AccountService;
+
+import java.sql.SQLException;
 
 import static spark.Spark.*;
 
@@ -15,7 +17,7 @@ public class TransferController {
     AccountService accountService = new AccountService();
     AccountRoutes accountRoutes = new AccountRoutes(accountService);
 
-    get("/", (req, res) -> new SuccessMessage("You can start sending payments."), json);
+    get("/", (req, res) -> new ResponseMessage("You can start sending payments."), json);
     addAccountRoutes(accountRoutes);
     addTransferRoutes(accountRoutes);
 
@@ -49,7 +51,11 @@ public class TransferController {
         NotAccountFoundException exception = (NotAccountFoundException) e.getCause();
         response.status(404);
         response.body(String.format("Account with IBAN {%s} not found", exception.getIban()));
-      } else {
+      } else if (e.getCause() instanceof SQLException) {
+        SQLException exception = (SQLException) e.getCause();
+        response.status(400);
+        response.body(exception.getMessage());
+      } else{
         throw e;
       }
     });

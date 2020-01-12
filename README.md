@@ -1,6 +1,6 @@
 ## Money Transfer
 
-Implementation of a RESTful API (including data model and the backing implementation) for money transfers between accounts.
+Implementation of a RESTful API for money transfers between accounts.
 
 ## Dependencies:
 - http://sparkjava.com/
@@ -36,7 +36,7 @@ Example of request body:
         "requstOriginApplication":"amazon"
     }
 
-## Limitations/Todos
+## Limitations/TODOs
 
 - Tests uses the same database as working server(H2).
 - Sender and receiver account have to be in the same currency.

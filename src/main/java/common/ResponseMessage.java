@@ -1,9 +1,9 @@
 package common;
 
-public class SuccessMessage {
+public class ResponseMessage {
     private String message;
 
-    public SuccessMessage(String message) {
+    public ResponseMessage(String message) {
         this.message = message;
     }
 }
