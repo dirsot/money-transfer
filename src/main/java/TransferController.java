@@ -1,12 +1,11 @@
-import static spark.Spark.exception;
-import static spark.Spark.get;
-import static spark.Spark.post;
-
 import common.JsonTransformer;
+import common.SuccessMessage;
 import exception.NotAccountFoundException;
 import javax.xml.bind.ValidationException;
 import org.jooq.exception.DataAccessException;
 import service.AccountService;
+
+import static spark.Spark.*;
 
 public class TransferController {
 
@@ -16,10 +15,11 @@ public class TransferController {
     AccountService accountService = new AccountService();
     AccountRoutes accountRoutes = new AccountRoutes(accountService);
 
-    get("/", (req, res) -> "You can start sending payments.", json);
+    get("/", (req, res) -> new SuccessMessage("You can start sending payments."), json);
     addAccountRoutes(accountRoutes);
     addTransferRoutes(accountRoutes);
 
+    after((request, response) -> response.type("application/json"));
     mapExceptions();
   }
 

@@ -81,7 +81,7 @@ public class TransferControllerTest {
 
   @Test
   public void sendTransfer_shouldMoveMoney() {
-    String jsonInputString = "{\"senderAccount\":accountIban1,\"receiverAccount\":\"accountIban2\",\"amount\":1.00,\"requstOriginApplication\":\"bank\"}";
+    String jsonInputString = "{\"senderAccount\":accountIban1,\"receiverAccount\":\"accountIban2\",\"amount\":1.00,\"requstOriginApplication\":\"test\"}";
 
     TestResponse res = request("POST", "/transfer", jsonInputString);
 

@@ -25,7 +25,7 @@ Implementation of a RESTful API (including data model and the backing implementa
     GET /accounts/:id/history
 
 ### Transfers
-    POST /transfers
+    POST /transfer
     
 Example of request body:
     

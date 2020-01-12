@@ -26,11 +26,9 @@ public class AccountService {
   private DSLContext getContext() throws IOException, SQLException {
     if (context == null) {
       if (new GlobalSettings().isTestDataBaseInUse()) {
-        LOGGER.info("Test database in use.");
         context = DSL.using(new H2Database().getConnection(), SQLDialect.H2);
       } else {
         //TODO: Change to real database.
-        LOGGER.info("Real database in use.");
         context = DSL.using(new H2Database().getConnection(), SQLDialect.H2);
       }
     }
