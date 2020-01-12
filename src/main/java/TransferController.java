@@ -9,6 +9,9 @@ import java.sql.SQLException;
 
 import static spark.Spark.*;
 
+/**
+ * Main class of the money transfer API.
+ */
 public class TransferController {
 
   private static final JsonTransformer json = new JsonTransformer();

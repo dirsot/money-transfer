@@ -1,5 +1,8 @@
 package common;
 
+/**
+ * Object for holding message information for API response.
+ */
 public class ResponseMessage {
     private String message;
 

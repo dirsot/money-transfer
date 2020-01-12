@@ -1,5 +1,8 @@
 package exception;
 
+/**
+ * Invalid or missing account number for provided accountId/iban number.
+ */
 public class NotAccountFoundException extends Exception {
 
   private final String accountId;

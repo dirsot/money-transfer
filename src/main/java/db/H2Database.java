@@ -7,6 +7,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
+/**
+ * In-memory database using H2.
+ */
 public class H2Database {
 
   private Connection connection;

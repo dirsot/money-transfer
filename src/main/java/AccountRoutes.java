@@ -8,6 +8,9 @@ import model.TransferRequest;
 import service.AccountService;
 import spark.Route;
 
+/**
+ * Routes definition available in server.
+ */
 class AccountRoutes {
 
   private AccountService accountService;

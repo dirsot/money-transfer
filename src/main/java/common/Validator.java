@@ -5,6 +5,9 @@ import javax.xml.bind.ValidationException;
 import model.TransferRequest;
 import spark.utils.StringUtils;
 
+/**
+ * Validators of user inputs.
+ */
 public class Validator {
 
   public static boolean isValidAccountId(String id) {
